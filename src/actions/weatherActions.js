@@ -3,6 +3,8 @@ import {GET_HOME_WEATHERS} from "../reducers/weatherReducer";
 import {LOADING_WEATHER} from "../reducers/weatherReducer";
 import {CLEAR_LOCATIONS} from "../reducers/weatherReducer";
 
+const apiPath = `http://${window.location.hostname}:8001/weather.php`;
+
 export function fetchLocation(woeid) {
     return (dispatch) => {
         dispatch({
@@ -10,7 +12,7 @@ export function fetchLocation(woeid) {
             payload: {location: null, woeid: woeid}
         });
 
-        axios.get(`http://localhost:8001/weather.php/?command=location&woeid=${woeid}`).then(response => {
+        axios.get(`${apiPath}?command=location&woeid=${woeid}`).then(response => {
             dispatch({
                 type: GET_HOME_WEATHERS,
                 payload: {location: response.data, woeid: woeid}
@@ -28,7 +30,7 @@ export function fetchSearch(keyword) {
         dispatch(loading());
         dispatch({type: CLEAR_LOCATIONS});
 
-        axios.get(`http://localhost:8001/weather.php/?command=search&keyword=${keyword}`).then(response => {
+        axios.get(`${apiPath}?command=search&keyword=${keyword}`).then(response => {
             if (response.data instanceof Array) {
                 if (!response.data.length) {
                     return dispatch(loading(false));
