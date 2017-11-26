@@ -17,6 +17,7 @@ export function fetchLocation(woeid) {
             });
             dispatch(loading(false));
         }).catch(error => {
+            alert('Error loading weather!');
             console.log(error.response);
         });
     };
@@ -38,6 +39,7 @@ export function fetchSearch(keyword) {
                 }
             }
         }).catch(error => {
+            alert('Error loading results!');
             console.log(error.response);
         });
     };

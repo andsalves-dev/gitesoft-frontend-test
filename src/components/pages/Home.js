@@ -19,8 +19,11 @@ class Home extends Component {
 
     constructor(props) {
         super(props);
+        let searchInput = "";
 
-        let searchInput = window.location.hash.replace('#/search/', '');
+        if (window.location.hash.match(/#\/search\//)) {
+            searchInput = window.location.hash.replace('#/search/', '');
+        }
 
         if (searchInput !== '') {
             this.props.fetchSearch(searchInput.toLowerCase());

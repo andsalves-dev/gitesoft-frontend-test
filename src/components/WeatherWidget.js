@@ -3,6 +3,7 @@ import '../assets/index.css';
 import TiLocation from "react-icons/lib/ti/location";
 import iconStateMap from "../helpers/iconStateMap";
 import ReactLoading from 'react-loading';
+import { Link } from 'react-router-dom'
 
 class WeatherComponent extends Component {
     weather;
@@ -34,7 +35,7 @@ class WeatherComponent extends Component {
                 <div className="inner">
                     <div className="location-title col-sm-12 float-left">
                         <TiLocation style={{marginTop: '-4px', marginRight: '4px'}}/>
-                        <span>{location}</span>
+                        <Link to={`/weather/${this.props.weather['woeid']}`} style={{color: 'white'}}>{location}</Link>
                     </div>
                     <div className="col-sm-6 text-center float-left"
                          style={{height: '60px', marginTop: '20px', paddingTop: '10px'}}>
