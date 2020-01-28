@@ -1,17 +1,15 @@
 
-## About Application Execution
+## Running Aplication
 
-All terminal commands are executed in root dir of project.
+All terminal commands are run from the root dir of project.
 
 ### Dependencies/npm
 
 React 16+, npm 5.5.x, redux 3.7.x were used.<br>
-To install dependencies, is necessary to have npm installed.
+To install dependencies, npm needs to be installed.
 With npm, run the following command to install dependencies:
 
 -- $ npm install
-
-### Running Application
 
 To run the application, we have to run a local npm server or build and run
 a production server. <br>
@@ -19,12 +17,13 @@ To run the project locally, run:
 
 -- $ npm start
 
-Note that port 3000 will be used.
+Note that the port 3000 will be used.
 
-The php script used as data source cannot be executed directly by the react application.<br>
-So, to access it, we have to run a php server pointing to the script. Like following:
+The php script used as data source cannot be run from the react application.<br>
+So, to access it, we need to run a php server pointing to the script. Like following:
 
 -- $ php -S 0.0.0.0:8001 public/weather.php
+(check the back-end repo)
 
 Now the application can make requests to weather.php through localhost:8001/weather.php successfully.<br>
 Notice that the app will check the current domain of application, using as base to define the script path.<br>
@@ -33,16 +32,11 @@ This is defined in src/actions/weatherActions.js.
 
 ### Remarks
 
-- The project were made in Linux, Manjaro Dist, Arch based. 
-- React was the Js Framework used. Also, Redux, Axios and other js tools ware used.
-- Bootstrap css was also included.
-- The created or most edited directories/files were:
-  - /src/*
-  - /public/weather.php
-  - /public/weatherMock.php
-  - /packages.json
-- The mirrored API sometimes is very slow. 
-Maybe that depends on the location you're in. In my case, request it from Fortaleza/Brazil is too slow. Because of this, I created a mocked version of the script, but that is not used in final result. 
+- The project was made in Linux, Manjaro Dist, Arch based. 
+- React was the Js Framework used. Also, Redux, Axios and other js tools were used.
+- Bootstrap was also included.
+- The mirrored API sometimes is too slow. 
+Maybe that depends on the location you're at. In my case, request it from Fortaleza/Brazil is too slow. Because of that, I created a mocked version of the script, but that is not used in final result. 
 - To make a production build, you can run: npm run build
 
 ### Troubleshooting
